@@ -19,7 +19,10 @@
         <form>
         <ul>
             @foreach ($todos as $todo)
-                <li>{{$todo->todo}}</li>
+                <li>
+                    {{$todo->todo}} 
+                    <a href="{{route('delete',$todo->id)}}">delete</a>
+                </li>
             @endforeach
         </ul>
     </body>
