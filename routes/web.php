@@ -2,17 +2,8 @@
 
 use App\Models\Todo;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
 
-Route::get('/', function () {
-    return view('welcome',['todos' => Todo::all()]);
-});
-
-Route::get('/delete/{todo}', function(Todo $todo) {
-    $todo->delete();
-    return redirect('/');
-})->name('delete');
-
-Route::post('/post', function() {
-    Todo::create(['todo' => request('todo')]);
-    return redirect('/');
-})->name('post');
+Route::get('/', [TodoController::class,'index']);
+Route::get('/delete/{todo}', [TodoController::class,'delete'])->name('delete');
+Route::post('/post', [TodoController::class,'post'])->name('post');
