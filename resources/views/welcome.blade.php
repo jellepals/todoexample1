@@ -21,7 +21,8 @@
             @foreach ($todos as $todo)
                 <li>
                     {{$todo->todo}} 
-                    <a href="{{route('delete',$todo->id)}}">delete</a>
+                    <a href="{{route('delete',$todo->id)}}">delete</a> | 
+                    <a href="{{route('edit',$todo->id)}}">wijzigen</a> 
                 </li>
             @endforeach
         </ul>
